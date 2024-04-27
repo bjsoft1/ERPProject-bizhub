@@ -1,5 +1,6 @@
 ﻿using ERPProject.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -95,5 +96,30 @@ namespace ERPProject.Controls
         public int? ProductId { get; set; }
         public int Quantity { get; set; }
         public float Amount { get; set; }
+    }
+
+    public static class ControlExtensions
+    {
+        public static IEnumerable<Control> GetAllLevelChilds(this Control control)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                yield return ctrl;
+                foreach (var childCtrl in ctrl.GetAllLevelChilds())
+                {
+                    yield return childCtrl;
+                }
+            }
+        }
+        public static List<Control> GetChilds(this Control control)
+        {
+            var lists = new List<Control>();
+            foreach (Control ctrl in control.Controls)
+            {
+                 lists.Add(ctrl);
+            }
+
+            return lists;
+        }
     }
 }

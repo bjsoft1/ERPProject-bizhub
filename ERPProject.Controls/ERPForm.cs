@@ -8,6 +8,7 @@ namespace ERPProject.Controls
         {
             InitializeComponent();
             base.StartPosition = FormStartPosition.CenterScreen;
+            this.KeyPreview = true;
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -40,9 +41,9 @@ namespace ERPProject.Controls
         {
             return MessageBox.Show(message, caption, MessageBoxButtons.YesNo) == DialogResult.Yes;
         }
-        public static void OK(string message, string caption = null)
+        public static void OK(string message, string caption = null,MessageBoxIcon icon = MessageBoxIcon.Information)
         {
-            MessageBox.Show(message, caption, MessageBoxButtons.OK);
+            MessageBox.Show(message, caption, MessageBoxButtons.OK, icon);
         }
     }
 }

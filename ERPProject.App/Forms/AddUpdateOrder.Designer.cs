@@ -35,6 +35,7 @@
             this._orderDetailPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this._addRow = new ERPProject.Controls.ERPButtonSave();
+            this._save = new ERPProject.Controls.ERPButtonSave();
             this.SuspendLayout();
             // 
             // _customer
@@ -86,7 +87,7 @@
             this._orderDetailPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this._orderDetailPanel.Location = new System.Drawing.Point(12, 108);
             this._orderDetailPanel.Name = "_orderDetailPanel";
-            this._orderDetailPanel.Size = new System.Drawing.Size(1060, 441);
+            this._orderDetailPanel.Size = new System.Drawing.Size(1060, 400);
             this._orderDetailPanel.TabIndex = 4;
             // 
             // label4
@@ -118,11 +119,31 @@
             this._addRow.UseVisualStyleBackColor = false;
             this._addRow.Click += new System.EventHandler(this._addRow_Click);
             // 
+            // _save
+            // 
+            this._save.AutoSize = true;
+            this._save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
+            this._save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._save.FlatAppearance.BorderSize = 0;
+            this._save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._save.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this._save.Location = new System.Drawing.Point(962, 514);
+            this._save.MaximumSize = new System.Drawing.Size(110, 35);
+            this._save.MinimumSize = new System.Drawing.Size(110, 35);
+            this._save.Name = "_save";
+            this._save.Size = new System.Drawing.Size(110, 35);
+            this._save.TabIndex = 8;
+            this._save.Text = "Save";
+            this._save.UseVisualStyleBackColor = false;
+            this._save.Click += new System.EventHandler(this._save_Click);
+            // 
             // AddUpdateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 561);
+            this.Controls.Add(this._save);
             this.Controls.Add(this._addRow);
             this.Controls.Add(this.label4);
             this.Controls.Add(this._orderDetailPanel);
@@ -146,5 +167,6 @@
         private System.Windows.Forms.FlowLayoutPanel _orderDetailPanel;
         private System.Windows.Forms.Label label4;
         private Controls.ERPButtonSave _addRow;
+        private Controls.ERPButtonSave _save;
     }
 }
