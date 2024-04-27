@@ -46,6 +46,9 @@
     <Compile Include="ERPButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ERPDataViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ERPForm.cs">
       <SubType>Form</SubType>
     </Compile>

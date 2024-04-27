@@ -1,5 +1,6 @@
 ﻿using ERPProject.Controls;
 using System;
+using System.Data;
 
 namespace ERPProject.App.Forms
 {
@@ -9,6 +10,41 @@ namespace ERPProject.App.Forms
         {
             InitializeComponent();
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            DataTable customerTable = new DataTable("Customer");
+
+            DataColumn nameColumn = new DataColumn("Name", typeof(string));
+            nameColumn.Unique = true;
+            customerTable.Columns.Add(nameColumn);
+
+            DataColumn addressColumn = new DataColumn("Address", typeof(string));
+            addressColumn.Unique = true;
+            customerTable.Columns.Add(addressColumn);
+
+            DataColumn emailColumn = new DataColumn("Email", typeof(string));
+            emailColumn.Unique = true;
+            customerTable.Columns.Add(emailColumn);
+
+            DataColumn mobileColumn = new DataColumn("Mobile", typeof(string));
+            mobileColumn.Unique = true;
+            customerTable.Columns.Add(mobileColumn);
+
+            for (int i = 1; i <= 100; i++)
+            {
+                DataRow row = customerTable.NewRow();
+                row["Name"] = "Customer " + i;
+                row["Address"] = "Address " + i;
+                row["Email"] = "email" + i + "@example.com";
+                row["Mobile"] = "123456789" + i.ToString().PadLeft(2, '0'); // PadLeft ensures mobile number is 10 digits
+                customerTable.Rows.Add(row);
+            }
+
+            this.dataGridView1.DataSource = customerTable;
+        }
+
 
         #region main Menu Click Events
         private void _createProduct_Click(object sender, EventArgs e)

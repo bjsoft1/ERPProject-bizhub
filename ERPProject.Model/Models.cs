@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 namespace ERPProject.Model
 {
     public class BaseModel
@@ -36,8 +37,21 @@ namespace ERPProject.Model
     }
     public enum ESaleOrderStatus
     {
+        [Description("Pending")]
         Pending = 0,
-        Approved = 1,
-        Rejected = 2
+        [Description("SDA")]
+        SaleDepartmentApproved = 1,
+        [Description("SDR")]
+        SaleDepartmentRejected = 2,
+
+        [Description("ADA")]
+        AccountDepartmentApproved = 3,
+        [Description("ADR")]
+        AccountDepartmentRejected = 4,
+
+        [Description("FDA")]
+        FinalDepartmentApproved = 5,
+        [Description("FDR")]
+        FinalDepartmentRejected = 6
     }
 }
