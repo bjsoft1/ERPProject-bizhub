@@ -102,6 +102,7 @@
             // 
             // _addRow
             // 
+            this._addRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._addRow.AutoSize = true;
             this._addRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
             this._addRow.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -121,6 +122,7 @@
             // 
             // _save
             // 
+            this._save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._save.AutoSize = true;
             this._save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
             this._save.Cursor = System.Windows.Forms.Cursors.Hand;
