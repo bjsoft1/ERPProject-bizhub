@@ -25,6 +25,7 @@ namespace ERPProject.App.Forms
         {
             base.OnLoad(e);
 
+            // Get all data-grided view datas.
             var query = @"select O.Id, C.CustomerName, C.CustomerAddress, C.CustomerMobile, U.FullName as OrderBy, O.TotalAmount, O.OrderStatus
 From [Order].[Orders] O 
 Inner Join [Person].[Customers] C On C.Id = O.CustomerId
@@ -32,6 +33,7 @@ Inner Join [Person].[Users] U On U.Id = O.CreatorUserId";
             _orderList = ERPSqlHelper.ExcuteEnumerable<OrderListingDto>(query);
             swithchParent(_pendingList, _orderList.Where(x=> x.OrderStatus == ESaleOrderStatus.Pending || x.OrderStatus == ESaleOrderStatus.Rejected));
         }
+        // Gloal Datagride view datasource
         IEnumerable<OrderListingDto> _orderList;
 
         #region main Menu Click Events
@@ -49,20 +51,21 @@ Inner Join [Person].[Users] U On U.Id = O.CreatorUserId";
         }
         #endregion main Menu Click Events
 
-        private void dataGridView1_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
-        {
-         
-
-            //if (e.ColumnIndex == dataGridView1.Columns["ActionBox"]?.Index)
-            //{
-            //MessageBox.Show($"Action clicked for row {e.RowIndex + 1}");
-            //}
-        }
+        /// <summary>
+        /// Enabled or disabled buttons according to needs
+        /// </summary>
+        /// <param name="isEnabledAproved"></param>
+        /// <param name="isEnabledReject"></param>
         void updateButtonStatus(bool isEnabledAproved, bool isEnabledReject)
         {
             _btnApprove.Enabled = isEnabledAproved;
             _btnReject.Enabled = isEnabledReject;
         }
+
+        /// <summary>
+        /// Enabled or disabled buttons according to orderDTO object
+        /// </summary>
+        /// <param name="orderListingDto"></param>
         void updateButtonStatus(OrderListingDto orderListingDto)
         {
             if (selectedOrder.OrderStatus == Model.ESaleOrderStatus.Pending)
@@ -85,6 +88,12 @@ Inner Join [Person].[Users] U On U.Id = O.CreatorUserId";
             else if (orderListingDto.OrderStatus == Model.ESaleOrderStatus.FinalDepartmentRejected)
                 updateButtonStatus(true, false);
         }
+        
+        /// <summary>
+        /// When Try to paint in cell then update Enum variable value into string
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             var orderListingDto = ((List<OrderListingDto>)dataGridView1.DataSource)[e.RowIndex];
@@ -94,17 +103,36 @@ Inner Join [Person].[Users] U On U.Id = O.CreatorUserId";
             }
         }
 
+        /// <summary>
+        /// New Order create button click enent
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _addOrder_Click(object sender, EventArgs e)
         {
             var form = new AddUpdateOrder();
             form.ShowDialog();
         }
+
+        /// <summary>
+        /// Try to make only one datagrided veiw for all panels.
+        /// this method helps to mange low memory consume.
+        /// </summary>
+        /// <param name="newParent"></param>
+        /// <param name="datasource"></param>
         void swithchParent(Control newParent, IEnumerable<OrderListingDto> datasource)
         {
+            // find current panel or datagrided veiw.
             var parent = dataGridView1.Parent;
+            
+            // Remove from old parent
             parent.Controls.Remove(dataGridView1);
+            
+            // adding into current index parent
             newParent.Controls.Add(dataGridView1);
-            Console.WriteLine(datasource.Count());
+            
+            // referesing data according to visible panel
+            //TODO: Filter from server side.
             dataGridView1.DataSource = datasource.ToList();
             dataGridView1.Refresh();
         }
@@ -112,6 +140,10 @@ Inner Join [Person].[Users] U On U.Id = O.CreatorUserId";
         {
             RefereshPanel(tabControl1.SelectedIndex);
         }
+        /// <summary>
+        /// Update Panel data-gride view and data source.
+        /// </summary>
+        /// <param name="index"></param>
         void RefereshPanel(int index)
         {
             if (index == 0)
@@ -123,6 +155,10 @@ Inner Join [Person].[Users] U On U.Id = O.CreatorUserId";
             else if (index == 3)
                 swithchParent(_finalDepartment, _orderList.Where(x => x.OrderStatus == ESaleOrderStatus.FinalDepartmentApproved || x.OrderStatus == ESaleOrderStatus.FinalDepartmentRejected));
         }
+
+        /// <summary>
+        /// Current selected row data-source object.
+        /// </summary>
         OrderListingDto selectedOrder = null;
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -187,6 +223,12 @@ Inner Join [Person].[Users] U On U.Id = O.CreatorUserId";
                 ERPMessage.OK("Already Final Approved.", "Already Done", MessageBoxIcon.Warning);
             }
         }
+
+        /// <summary>
+        /// Update data in database.
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="orderStatus"></param>
         void updateOrderStatus(int orderId, ESaleOrderStatus orderStatus)
         {
             var query = "update [Order].[Orders] Set OrderStatus=@OrderStatus Where Id = @Id";
