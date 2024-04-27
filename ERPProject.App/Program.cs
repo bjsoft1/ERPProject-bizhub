@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ERPProject.App.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace ERPProject.App
@@ -16,7 +14,8 @@ namespace ERPProject.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //TODO: Make Log in form
+            Application.Run(new Dashboard());
         }
     }
 }

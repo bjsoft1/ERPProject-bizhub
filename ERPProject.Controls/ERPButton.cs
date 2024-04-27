@@ -1,8 +1,7 @@
-﻿using System.Windows.Forms;
-
+﻿
 namespace ERPProject.Controls
 {
-    public class ERPButton:Button
+    public class ERPButton:System.Windows.Forms.Button
     {
         public ERPButton()
         {
@@ -33,8 +32,8 @@ namespace ERPProject.Controls
 
         private void InitializeControl()
         {
-            base.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(150)))), ((int)(((byte)(50)))));
-            base.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            base.BackColor = System.Drawing.Color.FromArgb(50, 150, 50);
+            base.ForeColor = System.Drawing.Color.FromArgb(240, 240, 240);
             base.Text = "Save";
         }
     }
@@ -47,8 +46,8 @@ namespace ERPProject.Controls
 
         private void InitializeControl()
         {
-            base.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            base.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            base.BackColor = System.Drawing.Color.FromArgb(200, 50, 50);
+            base.ForeColor = System.Drawing.Color.FromArgb(240, 240, 240);
             base.Text = "Cancel";
         }
     }
