@@ -70,17 +70,13 @@ namespace ERPProject.Controls
             this.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dock = DockStyle.Fill;
 
-            System.Windows.Forms.DataGridViewTextBoxColumn SerialNumber;
-
-
             SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
             SerialNumber.HeaderText = "SN";
             SerialNumber.Name = "SerialNumber";
             SerialNumber.ReadOnly = true;
             SerialNumber.Width = 60;
-
-            this.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            if (this.Columns.Count == 0)
+                this.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             SerialNumber});
         }
         protected override void OnRowPostPaint(DataGridViewRowPostPaintEventArgs e)
@@ -134,6 +130,7 @@ namespace ERPProject.Controls
             this.ResumeLayout(false);
 
         }
+        private System.Windows.Forms.DataGridViewTextBoxColumn SerialNumber;
     }
 
 }

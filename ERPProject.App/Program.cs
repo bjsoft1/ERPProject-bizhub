@@ -15,7 +15,7 @@ namespace ERPProject.App
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //TODO: Make Log in form
-            Application.Run(new Dashboard());
+            Application.Run(new AddUpdateOrder());
         }
     }
 }

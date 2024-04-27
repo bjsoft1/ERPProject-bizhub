@@ -46,7 +46,6 @@
     <Compile Include="ERPButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ERPDataGridViewColumn.cs" />
     <Compile Include="ERPDataViewer.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -56,12 +55,27 @@
     <Compile Include="ERPForm.Designer.cs">
       <DependentUpon>ERPForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductDetailsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductDetailsForm.Designer.cs">
+      <DependentUpon>ProductDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ERPDataViewer.resx">
       <DependentUpon>ERPDataViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductDetailsForm.resx">
+      <DependentUpon>ProductDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ERPProject.Model\ERPProject.Model.csproj">
+      <Project>{5c36fa8a-2264-4ecb-8bad-008f4cac7dd4}</Project>
+      <Name>ERPProject.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

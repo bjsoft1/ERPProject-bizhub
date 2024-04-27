@@ -80,7 +80,6 @@ namespace ERPProject.Migrations
                 e.Property(x => x.ProductPurchasePrice).IsRequired(true);
             });
 
-
             modelBuilder.Entity<OrderModel>(e =>
             {
                 e.ToTable(nameof(Orders), "Order");
@@ -120,6 +119,8 @@ namespace ERPProject.Migrations
         private void DataSeeding(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserModel>().HasData(Private_GetUsers());
+            modelBuilder.Entity<CustomerModel>().HasData(Private_GetCustomers());
+            modelBuilder.Entity<ProductModel>().HasData(Private_GetProducts());
         }
 
         private List<UserModel> Private_GetUsers()
@@ -128,15 +129,54 @@ namespace ERPProject.Migrations
             {
                 new UserModel
                 {
-                    Id = 1, 
-                    UserAddress = "Thaiba, Lalitpur", 
+                    Id = 1,
+                    UserAddress = "Thaiba, Lalitpur",
                     UserEmail = "bijay.adhikari.27648@gmail.com",
                     FullName = "Bijay Adhikari",
                     CreationTime = CREATION_TIME,
                     UserMobile = "9800000000",
                 }
             };
-            ;
+        }
+        private List<CustomerModel> Private_GetCustomers()
+        {
+            var list = new List<CustomerModel>();
+
+            for (var i = 0; i <= 100; i++)
+            {
+                list.Add(new CustomerModel
+                {
+                    Id = i + 1,
+                    CustomerAddress = $"Thaiba-{i + 1}, Lalitpur",
+                    CustomerEmail = $"bijay.adhikari.{27649 + i}@gmail.com",
+                    CustomerName = $"Bijay Adhikari-{i + 1}",
+                    CreationTime = CREATION_TIME,
+                    CustomerMobile = $"{9800000001 + i}",
+                    CreatorUserId = 1
+                });
+            }
+
+            return list;
+        }
+        private List<ProductModel> Private_GetProducts()
+        {
+            var list = new List<ProductModel>();
+
+            for (var i = 0; i <= 50; i++)
+            {
+                list.Add(new ProductModel
+                {
+                    Id = i + 1,
+                    ProductName = $"Mango-{i + 1}",
+                    ProductDescription = null,
+                    ProductSellingPrice = 1000+ i,
+                    ProductPurchasePrice = 900+ i,
+                    CreationTime = CREATION_TIME,
+                    CreatorUserId = 1
+                });
+            }
+
+            return list;
         }
     }
 }

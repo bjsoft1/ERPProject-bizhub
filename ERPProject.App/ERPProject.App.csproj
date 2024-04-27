@@ -52,6 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ERPHttpService.cs" />
+    <Compile Include="Forms\AddUpdateOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddUpdateOrder.Designer.cs">
+      <DependentUpon>AddUpdateOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CreateCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddUpdateOrder.resx">
+      <DependentUpon>AddUpdateOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,7 +119,7 @@
       <Name>ERPProject.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\ERPProject.Model\ERPProject.Model.csproj">
-      <Project>{5c36fa8a-2264-4ecb-8bad-008f4cac7dd4}</Project>
+      <Project>{5C36FA8A-2264-4ECB-8BAD-008F4CAC7DD4}</Project>
       <Name>ERPProject.Model</Name>
     </ProjectReference>
   </ItemGroup>
