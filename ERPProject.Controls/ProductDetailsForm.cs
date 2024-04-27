@@ -1,12 +1,6 @@
 ﻿using ERPProject.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ERPProject.Controls
@@ -25,7 +19,12 @@ namespace ERPProject.Controls
             this.formIndex = index;
             this.productDatasource = products;
             this.refValue = refrence;
+
+            this._product.DataSource = products;
+            this._product.DisplayMember = nameof(ProductModel.ProductName);
+            this._product.ValueMember = nameof(ProductModel.Id);
         }
+
         private IEnumerable<ProductModel> productDatasource;
         int formIndex;
         FormSubmittedEventArgs refValue;
@@ -54,7 +53,7 @@ namespace ERPProject.Controls
             _totalAmount.Text = $"{quantity * amount}";
 
             refValue.Amount = amount;
-            refValue.Quantity= quantity;
+            refValue.Quantity = quantity;
 
             if (_product.SelectedValue != null)
             {
@@ -62,13 +61,25 @@ namespace ERPProject.Controls
                 int.TryParse(_product.SelectedValue.ToString(), out productId);
                 refValue.ProductId = productId;
             }
-             
-                OnFormValueChange?.Invoke(this, refValue);
+            OnFormValueChange?.Invoke(this, refValue);
         }
 
         private void erpButtonCancel1_Click(object sender, EventArgs e)
         {
             OnFormRemoveClick?.Invoke(this, refValue, this);
+        }
+
+        private void _product_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (_product.SelectedValue != null)
+            {
+                int productId;
+                int.TryParse(_product.SelectedValue.ToString(), out productId);
+                refValue.ProductId = productId;
+            }
+            else
+                refValue.ProductId = null;
+            OnFormValueChange?.Invoke(this, refValue);
         }
     }
     public delegate void OnOrderFormValueChange(object sender, FormSubmittedEventArgs e);

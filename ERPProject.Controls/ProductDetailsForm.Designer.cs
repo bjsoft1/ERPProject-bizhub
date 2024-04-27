@@ -57,6 +57,7 @@
             this._product.Name = "_product";
             this._product.Size = new System.Drawing.Size(243, 24);
             this._product.TabIndex = 4;
+            this._product.SelectedValueChanged += new System.EventHandler(this._product_SelectedValueChanged);
             // 
             // _amount
             // 

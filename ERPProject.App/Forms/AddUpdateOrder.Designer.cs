@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this._customer = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._totalAmount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this._orderDetailPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this._addRow = new ERPProject.Controls.ERPButtonSave();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // _customer
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(243, 24);
-            this.comboBox1.TabIndex = 0;
+            this._customer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this._customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._customer.FormattingEnabled = true;
+            this._customer.Location = new System.Drawing.Point(12, 32);
+            this._customer.Name = "_customer";
+            this._customer.Size = new System.Drawing.Size(243, 24);
+            this._customer.TabIndex = 0;
             // 
             // label1
             // 
@@ -57,15 +57,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Customer";
             // 
-            // textBox1
+            // _totalAmount
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(281, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(240, 23);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TabStop = false;
+            this._totalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._totalAmount.Location = new System.Drawing.Point(281, 33);
+            this._totalAmount.Name = "_totalAmount";
+            this._totalAmount.ReadOnly = true;
+            this._totalAmount.Size = new System.Drawing.Size(240, 23);
+            this._totalAmount.TabIndex = 2;
+            this._totalAmount.TabStop = false;
             // 
             // label2
             // 
@@ -127,9 +127,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this._orderDetailPanel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._totalAmount);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this._customer);
             this.Name = "AddUpdateOrder";
             this.Text = "AddUpdateOrder";
             this.ResumeLayout(false);
@@ -139,9 +139,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox _customer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox _totalAmount;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel _orderDetailPanel;
         private System.Windows.Forms.Label label4;

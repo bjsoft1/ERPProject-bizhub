@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ERPSqlHelper.cs" />
     <EmbeddedResource Include="Forms\AddUpdateOrder.resx">
       <DependentUpon>AddUpdateOrder.cs</DependentUpon>
     </EmbeddedResource>
