@@ -46,6 +46,7 @@
     <Compile Include="ERPButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ERPDataGridViewColumn.cs" />
     <Compile Include="ERPDataViewer.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -56,6 +57,11 @@
       <DependentUpon>ERPForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ERPDataViewer.resx">
+      <DependentUpon>ERPDataViewer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
