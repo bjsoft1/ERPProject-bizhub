@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\OrderDto.cs" />
     <Compile Include="ERPHttpService.cs" />
     <Compile Include="Forms\AddUpdateOrder.cs">
       <SubType>Form</SubType>

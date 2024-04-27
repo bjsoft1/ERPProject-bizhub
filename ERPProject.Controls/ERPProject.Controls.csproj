@@ -55,6 +55,7 @@
     <Compile Include="ERPForm.Designer.cs">
       <DependentUpon>ERPForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="ProductDetailsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>

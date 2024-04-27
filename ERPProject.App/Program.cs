@@ -20,7 +20,7 @@ namespace ERPProject.App
             ERPSqlHelper.SetConnectionString("Data Source=DESKTOP-MQ6OS8O\\SQLEXPRESS;Initial Catalog=ERP_Inventory;Integrated Security=True;TrustServerCertificate=True");
 
             //TODO: Make Log in form
-            Application.Run(new AddUpdateOrder());
+            Application.Run(new Dashboard());
         }
     }
 }

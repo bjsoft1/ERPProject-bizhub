@@ -30,6 +30,8 @@ namespace ERPProject.Controls
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            
             this.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.BackgroundColor = Color.White;
@@ -52,7 +54,7 @@ namespace ERPProject.Controls
             this.ReadOnly = true;
             this.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(230, 230, 230);

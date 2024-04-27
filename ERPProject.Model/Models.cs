@@ -58,19 +58,22 @@ namespace ERPProject.Model
     {
         [Description("Pending")]
         Pending = 0,
+        [Description("Rejected")]
+        Rejected = 1,
+
         [Description("SDA")]
-        SaleDepartmentApproved = 1,
+        SaleDepartmentApproved = 2,
         [Description("SDR")]
-        SaleDepartmentRejected = 2,
+        SaleDepartmentRejected = 3,
 
         [Description("ADA")]
-        AccountDepartmentApproved = 3,
+        AccountDepartmentApproved = 4,
         [Description("ADR")]
-        AccountDepartmentRejected = 4,
+        AccountDepartmentRejected = 5,
 
         [Description("FDA")]
-        FinalDepartmentApproved = 5,
+        FinalDepartmentApproved = 6,
         [Description("FDR")]
-        FinalDepartmentRejected = 6
+        FinalDepartmentRejected = 7
     }
 }
